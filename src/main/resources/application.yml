@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5330/library
+    username: hamza
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: validate
+logging:
+  level:
+    org:
+      springframework:
+        jdbc: DEBUG
