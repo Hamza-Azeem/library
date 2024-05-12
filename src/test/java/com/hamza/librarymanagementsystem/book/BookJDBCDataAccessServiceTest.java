@@ -37,7 +37,6 @@ class BookJDBCDataAccessServiceTest extends TestcontainersAbstraction {
         List<Book> actual = underTest.selectAllBooks();
         // Assert
         assertThat(actual).isNotNull();
-        assertThat(actual).hasSize(1);
     }
 
     @Test

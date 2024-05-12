@@ -65,7 +65,7 @@ class BookService {
     }
     public void deleteBookById(long id){
         Book book = bookDao.selectBookById(id).orElseThrow(
-                ()-> new RecordNotFoundException(String.format("No book with id=%s was found.", id)));
+                ()-> new RecordNotFoundException(String.format("No book with id=%s  was found.", id)));
         bookDao.deleteBookById(id);
     }
 
