@@ -1,13 +1,15 @@
 package com.hamza.librarymanagementsystem.book;
 
+import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Repository
-class BookJDBCDataAccessService implements BookDao {
+public class BookJDBCDataAccessService implements BookDao {
     private final JdbcTemplate jdbcTemplate;
     private final BookRowMapper bookRowMapper;
 
@@ -36,6 +38,8 @@ class BookJDBCDataAccessService implements BookDao {
     }
 
     @Override
+    @Transactional
+    @Modifying
     public void addBook(Book book) {
         String sql = """
                 INSERT INTO book(title, author, publication_year, isbn)
@@ -51,6 +55,8 @@ class BookJDBCDataAccessService implements BookDao {
     }
 
     @Override
+    @Transactional
+    @Modifying
     public void updateBook(Book book) {
         String sql = """
                 UPDATE book SET title=?, author=?, publication_year=?, ISBN=?
@@ -67,6 +73,8 @@ class BookJDBCDataAccessService implements BookDao {
     }
 
     @Override
+    @Transactional
+    @Modifying
     public void deleteBookById(long id) {
         String sql = """
                 DELETE FROM book WHERE id=?

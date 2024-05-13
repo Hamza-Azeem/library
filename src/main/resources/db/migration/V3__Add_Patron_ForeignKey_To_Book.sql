@@ -1,0 +1,6 @@
+ALTER TABLE book
+ADD COLUMN patron_id BIGINT;
+
+ALTER TABLE book
+ADD CONSTRAINT fk_patron
+FOREIGN KEY(patron_id) REFERENCES patron(id);
