@@ -1,0 +1,5 @@
+ALTER TABLE book
+DROP CONSTRAINT fk_patron;
+
+ALTER TABLE book
+DROP COLUMN patron_id;

@@ -45,6 +45,7 @@ public class PatronIntegrationTest {
                 .exchange()
                 .expectStatus()
                 .isCreated();
+
         List<Patron> patrons = webTestClient.get()
                 .uri(PATRON_URI)
                 .accept(MediaType.APPLICATION_JSON)
@@ -54,7 +55,7 @@ public class PatronIntegrationTest {
                 .expectBodyList(new ParameterizedTypeReference<Patron>() {
                 }).returnResult().getResponseBody();
         long id = patrons.stream()
-                .filter(p -> p.getEmail().equals(email))
+                .filter(p -> p.getPhoneNumber().equals(phoneNumber))
                 .map(Patron::getId)
                 .findFirst().orElseThrow();
         Patron actual = webTestClient.get()
@@ -110,7 +111,7 @@ public class PatronIntegrationTest {
                 .expectBodyList(new ParameterizedTypeReference<Patron>() {
                 }).returnResult().getResponseBody();
         long id = patrons.stream()
-                .filter(p -> p.getEmail().equals(email))
+                .filter(p -> p.getPhoneNumber().equals(phoneNumber))
                 .map(Patron::getId)
                 .findFirst().orElseThrow();
         // Act
@@ -168,7 +169,7 @@ public class PatronIntegrationTest {
                 .expectBodyList(new ParameterizedTypeReference<Patron>() {
                 }).returnResult().getResponseBody();
         long id = patrons.stream()
-                .filter(p -> p.getEmail().equals(email))
+                .filter(p -> p.getPhoneNumber().equals(phoneNumber))
                 .map(Patron::getId)
                 .findFirst().orElseThrow();
         // Act

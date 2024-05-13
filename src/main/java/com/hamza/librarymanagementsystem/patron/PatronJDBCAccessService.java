@@ -1,7 +1,9 @@
 package com.hamza.librarymanagementsystem.patron;
 
+import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -34,6 +36,8 @@ public class PatronJDBCAccessService implements PatronDao{
     }
 
     @Override
+    @Transactional
+    @Modifying
     public void addPatron(Patron patron) {
         String sql = """
                 INSERT INTO patron(name, email, phone_number, address)
@@ -49,6 +53,8 @@ public class PatronJDBCAccessService implements PatronDao{
     }
 
     @Override
+    @Transactional
+    @Modifying
     public void updatePatron(Patron patron) {
         String sql = """
                 UPDATE patron
@@ -66,6 +72,8 @@ public class PatronJDBCAccessService implements PatronDao{
     }
 
     @Override
+    @Transactional
+    @Modifying
     public void deletePatronById(long id) {
         String sql = """
                 DELETE FROM patron WHERE id=?

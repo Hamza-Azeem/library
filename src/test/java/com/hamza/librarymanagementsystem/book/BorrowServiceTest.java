@@ -19,7 +19,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class BookServiceTest {
+class BorrowServiceTest {
     private BookService underTest;
     @Mock
     private BookDao bookDao;
