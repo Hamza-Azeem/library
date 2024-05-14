@@ -1,4 +1,5 @@
 package com.hamza.librarymanagementsystem.book;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,19 +22,19 @@ class BookController {
         return new ResponseEntity<>(bookService.findBookById(bookId), HttpStatus.OK);
     }
     @PostMapping
-    private ResponseEntity<?> saveBook(@RequestBody BookRegistrationRequest bookRegistrationRequest){
+    private ResponseEntity<?> saveBook(@RequestBody @Valid BookRegistrationRequest bookRegistrationRequest){
         bookService.addNewBook(bookRegistrationRequest);
-        return new ResponseEntity<>(Void.class, HttpStatus.CREATED);
+        return ResponseEntity.status(HttpStatus.CREATED).body("{}");
     }
     @PutMapping("/{bookId}")
     private ResponseEntity<?> updateBook(@PathVariable long bookId, @RequestBody BookUpdateRequest bookUpdateRequest){
         bookService.updateExistingBook(bookId, bookUpdateRequest);
-        return new ResponseEntity<>(Void.class, HttpStatus.OK);
+        return ResponseEntity.status(HttpStatus.OK).body("{}");
     }
     @DeleteMapping("/{id}")
     private ResponseEntity<?> deleteBook(@PathVariable long id){
         bookService.deleteBookById(id);
-        return new ResponseEntity<>(Void.class, HttpStatus.NO_CONTENT);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("{}");
     }
 
 }
