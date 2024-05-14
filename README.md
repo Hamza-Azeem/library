@@ -23,7 +23,7 @@ Request Body:
      "title": "The Great Gatsby",
      "author": "F. Scott Fitzgerald",
      "publicationYear": 1925,
-     "isbn": "9780743273565"
+     "ISBN": "9780743273565"
     }
 
 PUT /api/books/{id}: Update an existing book's information.
@@ -33,7 +33,7 @@ Request Body:
       "title": "Updated Title",
       "author": "Updated Author",
       "publicationYear": 2022,
-      "isbn": "9780743273565"
+      "ISBN": "9780743273565"
     }
 
 or you can update only a specific field by providing a value for it and ignoring the other fields like:
