@@ -5,7 +5,7 @@ To run the application using Docker Compose with PostgreSQL, follow these steps:
     1. Clone the repository from GitHub
     2. Navigate to the project directory: cd library-management-system
     3. Run Docker Compose to start the containers:
-    4. docker-compose up -d
+    4. docker compose up -d
     5. This command will start the PostgreSQL container named ps-database, configured with the specified username (hamza) and password (password).
     6. Once the containers are up and running, you can interact with the API endpoints.
 
