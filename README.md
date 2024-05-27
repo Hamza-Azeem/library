@@ -7,7 +7,27 @@ To run the application using Docker Compose with PostgreSQL, follow these steps:
     3. Run Docker Compose to start the containers:
     4. docker compose up -d
     5. This command will start the PostgreSQL container named ps-database, configured with the specified username (hamza) and password (password).
-    6. Once the containers are up and running, you can interact with the API endpoints.
+After these steps your container should be up and running.
+
+**Creating the library Database**
+
+After your containers are up and running, you can create a database named library by following these steps:
+
+1. Access the Running Database Container:
+   Open your terminal.
+Execute the following command to access the running PostgreSQL container. This command opens a bash shell inside the container.
+
+        docker exec -it ps-database bash
+2. Connect to PostgreSQL:
+   Once inside the container, connect to the PostgreSQL instance using the psql command:    
+
+        psql -U hamza
+3.Create the library Database:
+    After connecting to PostgreSQL, create the database by running:
+
+    CREATE DATABASE library;
+
+After following these steps you can run the application without facing any problems.
 
 **API Endpoints**
 **Book Management**
