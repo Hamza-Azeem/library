@@ -14,18 +14,18 @@ After these steps your container should be up and running.
 After your containers are up and running, you can create a database named library by following these steps:
 
 1. Access the Running Database Container:
-   Open your terminal.
+Open your terminal.
 Execute the following command to access the running PostgreSQL container. This command opens a bash shell inside the container.
 
         docker exec -it ps-database bash
 2. Connect to PostgreSQL:
-   Once inside the container, connect to the PostgreSQL instance using the psql command:    
+Once inside the container, connect to the PostgreSQL instance using the psql command:    
 
         psql -U hamza
-3.Create the library Database:
+3. Create the library Database:
     After connecting to PostgreSQL, create the database by running:
-
-    CREATE DATABASE library;
+   
+        CREATE DATABASE library;
 
 After following these steps you can run the application without facing any problems.
 
